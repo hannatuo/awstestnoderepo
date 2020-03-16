@@ -2,10 +2,15 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "asennus"
+      - echo "initializing"
+  pre_build:
+    commands:
+      - echo "initializing"
+      - - npm install
   build:
     commands:
-      - npm install
+      - echo "Installing node_modules"
+      - npm run build && aws s3 sync build/ s3://hannanbucketti
   post_build:
     commands:
-      -npm build run
+      - echo "Finishing up"
