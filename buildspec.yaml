@@ -6,7 +6,7 @@ phases:
   pre_build:
     commands:
       - echo "initializing"
-      - - npm install
+      - npm install
   build:
     commands:
       - echo "Installing node_modules"
